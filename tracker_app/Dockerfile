@@ -13,4 +13,8 @@ ENV BUNDLE_PATH=/gems \
  GEM_HOME=/gems
 ENV PATH /gems/bin:$PATH
 
+RUN bundle config build.nokogiri --use-system-libraries
+COPY Gemfile Gemfile.lock ./
+RUN bundle install
+
 COPY . $APP_HOME

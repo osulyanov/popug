@@ -3,10 +3,28 @@ version: '3'
 services:
   tracker_app:
     image: popug/tracker_app
+    command: /bin/sh -c "rm -f tmp/pids/server.pid && bundle exec rails server --port 3000 --binding '0.0.0.0'"
+    ports:
+      - "3000:3000"
     volumes:
       - .:/app
       - gem_cache:/gems
+      - tracker_app_gem_cache:/gems
+    depends_on:
+      - tracker_postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_HOST=tracker_postgres
+      - POSTGRES_PORT=5432
 
+  tracker_postgres:
+    environment:
+      POSTGRES_PASSWORD: password
+    volumes:
+      - tracker_postgres:/var/lib/postgresql/data
+        
 volumes:
-  gem_cache:
+  tracker_app_gem_cache:
+  tracker_postgres:
     

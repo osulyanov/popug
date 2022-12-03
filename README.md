@@ -9,6 +9,9 @@ Apples' Silicon support included
 ###### Bash
 Tracker app: `make tracker_bash`
 
+###### Set up first
+`make prepare_db`
+
 ###### Start all components
 `make up`
 
