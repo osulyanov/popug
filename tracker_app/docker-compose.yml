@@ -19,6 +19,8 @@ services:
       - POSTGRES_PORT=5432
 
   tracker_postgres:
+    ports:
+      - "5432:5432"
     environment:
       POSTGRES_PASSWORD: password
     volumes:
