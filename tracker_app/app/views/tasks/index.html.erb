@@ -1,0 +1,36 @@
+<div class="w-full">
+  <div class="flex flex-row justify-between items-center">
+    <div>
+      <h1 class="text-3xl font-medium">Tasks list</h1>
+    </div>
+    <div class="inline-flex space-x-2 items-center">
+      <%= link_to new_task_path, class: "p-2 border border-slate-200 rounded-md inline-flex space-x-1 items-center text-indigo-200 hover:text-white bg-indigo-600 hover:bg-indigo-500" do %>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <span class="text-sm font-medium hidden md:block">New task</span>
+      <% end %>
+
+      <a href="#" class="p-2 border border-slate-200 rounded-md inline-flex space-x-1 items-center hover:bg-slate-200">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+        </svg>
+        <span class="text-sm hidden md:block">Re-assign tasks</span>
+      </a>
+
+    </div>
+  </div>
+  <p class="text-slate-500">
+    <% if action_name == 'my' %>
+      My tasks.
+      <%= link_to 'Show all tasks in the system', tasks_path, class: 'text-indigo-500 underline' %>
+    <% else %>
+      All tasks in the system.
+      <%= link_to 'Show only my tasks', my_tasks_path, class: 'text-indigo-500 underline' %>
+    <% end %>
+  </p>
+
+  <div id="tasks" class="my-5">
+    <%= render @tasks %>
+  </div>
+</div>

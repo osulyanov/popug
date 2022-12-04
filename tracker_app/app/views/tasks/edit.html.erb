@@ -1,0 +1,16 @@
+<div class="w-full">
+  <div class="flex flex-row justify-between items-center">
+    <div>
+      <h1 class="text-3xl font-medium">Editing task</h1>
+    </div>
+  </div>
+  <p class="text-slate-500">Name the task and fill detailed description</p>
+
+  <div id="tasks" class="my-5">
+    <%= render "form", task: @task %>
+
+    <%= link_to "Show this task", @task, class: "ml-2 rounded-lg py-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Back to tasks", tasks_path, class: "ml-2 rounded-lg py-2 px-5 bg-gray-100 inline-block font-medium" %>
+  </div>
+  <p class="text-xs text-slate-500 text-center">The task will be assigned my and admin or a manager</p>
+</div>

@@ -1,0 +1,19 @@
+<%= form_with(model: task, class: "contents") do |form| %>
+  <% if task.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+        <% task.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.label :title, class: 'block font-semibold' %>
+  <%= form.text_field :title, placeholder: 'Meaningful title', class: 'border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-indigo-500 focus:ring-1 rounded-md' %>
+  <%= form.label :description, class: 'block mt-3 font-semibold' %>
+  <%= form.text_area :description, placeholder: 'Detailed description', class: 'border w-full h-20 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-indigo-500 focus:ring-1 rounded-md' %>
+  <%= form.submit class: "mt-4 bg-purple-500 text-white py-2 px-6 rounded-md hover:bg-purple-600 hover:cursor-pointer" %>
+<% end %>
