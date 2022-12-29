@@ -16,7 +16,7 @@ tracker_bash:
 	$(TRACKER_APP_COMPOSE) run --rm tracker_app /bin/bash
 
 prepare_db:
-	$(TRACKER_APP_COMPOSE) run --rm runner /bin/bash -c "rake db:create db:schema:load db:seed"
+	$(TRACKER_APP_COMPOSE) run --rm tracker_app /bin/bash -c "rake db:create db:schema:load db:seed"
 
 up:
 	$(TRACKER_APP_COMPOSE) up
